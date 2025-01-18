@@ -1,6 +1,5 @@
-package stepDefApi;
+package hooks;
 
-import helper.Utility;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
@@ -14,7 +13,7 @@ public class Hooks {
 
     @BeforeAll
     public static void setUp() {
-        System.out.println("abc");
+
     }
 
     @AfterAll

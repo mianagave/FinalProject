@@ -1,0 +1,56 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.mianagave'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.11.3'
+
+    implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.20.1'
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.20.1'
+
+    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.4.0'
+    implementation group: 'org.json', name: 'json', version: '20240303'
+    testImplementation group: 'io.rest-assured', name: 'json-path', version: '5.4.0'
+    implementation group: 'io.rest-assured', name: 'json-schema-validator', version: '5.4.0'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.26.3'
+
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.27.0'
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '5.9.2'
+
+
+
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty"cucumber.filter.tags",System.getProperty("cucumber.filter.tags") //mengembalikan nilai tags yang dieksekusi
+}
+configurations {
+    cucumberRuntime{
+        extendsFrom testImplementation
+    }
+}
+tasks.register('apiTest'){  //membuat custom gradle tasknya
+    dependsOn assemble,testClasses
+    doLast {
+        javaexec{
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = [
+                    '--plugin','pretty',
+                    '--plugin','html:reports/cucumber-api-report.html',
+                    '--glue','stepDefApi','stepDefWeb',// nama package tempat kita meletakkan step
+                    '--tags','@api','@web',
+                    'src/test/java/feature'] //path dimana folder feature kita diletakkan
+        }
+    }
+}

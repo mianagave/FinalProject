@@ -21,7 +21,7 @@ public class Utility {
     public static void startDriver() {
         ChromeOptions options = new ChromeOptions();
 
-        // options.addArguments("--headless");
+        options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--remote-allow-origins=*");
@@ -41,12 +41,7 @@ public class Utility {
 
     public static void popup() {
         Alert alert = driver.switchTo().alert();
-
-        // Dapatkan teks dari alert
         String alertText = alert.getText();
-//        System.out.println("Alert text: " + alertText);
-
-        // Terima alert
         alert.accept();
 
     }

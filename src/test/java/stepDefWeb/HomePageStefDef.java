@@ -1,6 +1,5 @@
 package stepDefWeb;
 
-import static helper.Utility.startDriver;
 import helper.Utility;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;

@@ -29,6 +29,7 @@ public class Hooks {
 
     @After
     public static void afterTest() throws InterruptedException {
+
         Thread.sleep(3000);
        quitDriver();
     }

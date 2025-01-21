@@ -8,7 +8,7 @@ public class ProductPage {
     By itemPhones = By.cssSelector("[onclick='byCat(\\'phone\\')']");
     By itemlaptops = By.xpath("//a[.='Laptops']");
     By itemMonitors = By.cssSelector("[onclick='byCat(\\'monitor\\')']");
-    By brandNamePhone =By.xpath("//a[.='Samsung galaxy s6']");
+    By brandNamePhone =By.cssSelector("#tbodyid > div:nth-of-type(1) .hrefch");
     By brandNameLaptop = By.xpath("//a[.='MacBook Pro']");
     By brandNameMonitors = By.xpath("//a[.='Apple monitor 24']");
     By addToCard = By.xpath("//a[.='Add to cart']");

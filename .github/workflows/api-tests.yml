@@ -34,10 +34,10 @@ jobs:
 
       - name: Archive Test Results
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
 
         with:
           name: Cucumber API Report
-          path: build/cucumber-api-report.html
+          path: reports/cucumber-api-report.html
 
 

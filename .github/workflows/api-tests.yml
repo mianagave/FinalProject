@@ -30,7 +30,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Execute cucumber API Test
-        run: ./gradlew cucumber
+        run: ./gradlew apiTest
 
       - name: Archive Test Results
         if: always()

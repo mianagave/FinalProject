@@ -50,6 +50,6 @@ public class LoginStefDef {
     @Then("user fails to log in and a notification appears {string}")
     public void userFailsToLogInAndANotificationAppears(String message) throws InterruptedException {
             Thread.sleep(1000);
-            util.popup();
+            Utility.popup();
     }
 }

@@ -1,0 +1,44 @@
+name: Web Automation Workflow
+
+on:
+  push:
+    branches:
+      - "master"
+  pull_request:
+    branches:
+      - "master"
+  workflow_dispatch:
+
+jobs:
+  test-web:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '22'
+          distribution: 'temurin'
+
+      - name: Set up Chrome
+        uses: browser-actions/setup-chrome@v0.0.0
+
+      - name: Setup gradlew
+        run: chmod +x gradlew
+
+      - name: Execute cucumber Web Test
+        run: ./gradlew cucumber
+
+      - name: Archive Test Results
+        if: always()
+        uses: actions/upload-artifact@v3
+
+        with:
+          name: Cucumber Report
+          path: cucumber-reports.html
+
+
+

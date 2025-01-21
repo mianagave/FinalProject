@@ -38,6 +38,6 @@ jobs:
 
         with:
           name: Cucumber API Report
-          path: html:reports/cucumber-api-report.html
+          path: html:cucumber-api-report.html
 
 

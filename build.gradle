@@ -47,7 +47,7 @@ tasks.register('apiTest',){  //membuat custom gradle tasknya
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             args = [
                     '--plugin','pretty',
-                    '--plugin','html:cucumber-api-report.html',
+                    '--plugin','html:reports/cucumber-api-report.html',
                     '--glue','stepDefApi',// nama package tempat kita meletakkan step
                     '--tags','@api',
                     'src/test/java/feature'] //path dimana folder feature kita diletakkan
@@ -63,7 +63,7 @@ tasks.register('webTest',){  //membuat custom gradle tasknya
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             args = [
                     '--plugin','pretty',
-                    '--plugin','html:cucumber-reports.html',
+                    '--plugin','html:reports/cucumber-web-report.html',
                     '--glue','stepDefWeb',// nama package tempat kita meletakkan step
                     '--tags','@web',
                     'src/test/java/feature'] //path dimana folder feature kita diletakkan

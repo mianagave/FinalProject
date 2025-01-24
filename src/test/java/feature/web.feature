@@ -30,10 +30,10 @@ Feature:Test Automation WEB On https://www.demoblaze.com/
     Then user fails to log in and a notification appears "Wrong password"
 
   @web
-  Scenario: Display the list of item phones
+  Scenario: user successfully checkout item
     Given the user is in the main view
-    Then user selects category phones
-    Then user select product phone "Samsung galaxy s6"
+    Then user selects item category
+    Then user select product "Samsung galaxy s6"
     Then user clicks add to cart button
     Then user will receive a notification "Product added."
     When user clicks label cart
@@ -50,51 +50,6 @@ Feature:Test Automation WEB On https://www.demoblaze.com/
     And user will receive a message "Thank you for your purchase!"
     And user click OK button
     Then the user is in the main view
-
-  @web
-  Scenario: Display the list of item Laptops
-    Given the user is in the main view
-    Then user selects category laptops
-    Then user select product laptop "MacBook Pro"
-    Then user clicks add to cart button
-    Then user will receive a notification "Product added."
-    When user clicks label cart
-    When user click Place order
-    Then the user will be directed to fill in the data form
-    And user fills in the name "Mian Agave"
-    And user fills in the Country  "Indonesia"
-    And user fills in the City "Jakarta"
-    And user fills in the Credit card "1234567890123456"
-    And user fills in the Month "Januari"
-    And user fills in the Year "2025"
-    Then user click Purchase button
-    Then user will receive a notification SuccessfulTick
-    And user will receive a message "Thank you for your purchase!"
-    And user click OK button
-    Then the user is in the main view
-
-  @web
-  Scenario: Display the list of item Monitors
-    Given the user is in the main view
-    Then user selects category monitors
-    Then user select product monitor "Apple monitor 24"
-    Then user clicks add to cart button
-    Then user will receive a notification "Product added."
-    When user clicks label cart
-    When user click Place order
-    Then the user will be directed to fill in the data form
-    And user fills in the name "Mian Agave"
-    And user fills in the Country  "Indonesia"
-    And user fills in the City "Jakarta"
-    And user fills in the Credit card "1234567890123456"
-    And user fills in the Month "Januari"
-    And user fills in the Year "2025"
-    Then user click Purchase button
-    Then user will receive a notification SuccessfulTick
-    And user will receive a message "Thank you for your purchase!"
-    And user click OK button
-    Then the user is in the main view
-
 
 
 

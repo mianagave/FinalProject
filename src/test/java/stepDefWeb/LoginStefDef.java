@@ -5,6 +5,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.jupiter.api.Assertions;
 import pagesWeb.HomePage;
 import pagesWeb.LoginPage;
 
@@ -52,4 +53,13 @@ public class LoginStefDef {
             Thread.sleep(1000);
             Utility.popup();
     }
+
+    @Then("error message on Allert appear {string}")
+    public void vericationAllertText(String message) throws InterruptedException {
+        String allertMessage = Utility.getAllertMessage();
+        Thread.sleep(1500);
+        Assertions.assertEquals(allertMessage, message);
+    }
+
+
 }

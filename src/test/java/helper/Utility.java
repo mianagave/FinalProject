@@ -43,7 +43,11 @@ public class Utility {
         Alert alert = driver.switchTo().alert();
         String alertText = alert.getText();
         alert.accept();
+    }
 
+    public static String getAllertMessage(){
+        Alert alert = driver.switchTo().alert();
+        return alert.getText();
     }
 
 

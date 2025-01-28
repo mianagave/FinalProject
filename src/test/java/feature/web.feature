@@ -20,14 +20,14 @@ Feature:Test Automation WEB On https://www.demoblaze.com/
     Then the user will be redirected to his account
 
 
-  @web
+  @web12
   Scenario: Login with a invalid registered account
     Given the user is in the main view
     And user clicks the sign in button
     And user enters username "Mian Agave" on login page
     And  user enters password "1" on login page
     When user click the login button
-    Then user fails to log in and a notification appears "Wrong password"
+    Then error message on Allert appear "Wrong password"
 
   @web
   Scenario: user successfully checkout item

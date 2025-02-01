@@ -1,7 +1,7 @@
-package stepDefApi;
+package stepDef.Api;
 
 
-import pagesApi.ApiPage;
+import page.Api.ApiPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

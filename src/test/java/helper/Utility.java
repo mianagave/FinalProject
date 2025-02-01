@@ -1,10 +1,13 @@
 package helper;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.time.Duration;
@@ -31,7 +34,7 @@ public class Utility {
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.get("https://www.demoblaze.com/");
+
 
     }
 
@@ -39,13 +42,20 @@ public class Utility {
         driver.quit();
     }
 
-    public static void popup() {
-        Alert alert = driver.switchTo().alert();
-        String alertText = alert.getText();
-        alert.accept();
-
+    public void goToHomepage() {
+        if (driver == null) {
+            Utility.startDriver();  // Inisialisasi driver jika belum ada
+        }
+        driver.get("https://www.demoblaze.com/");
     }
 
+    public void displayPopup(String message) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        String actualMessage = alert.getText();
+        Assert.assertEquals(message, actualMessage);
+        alert.accept();
+    }
 
 }
 

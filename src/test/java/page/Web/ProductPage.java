@@ -1,10 +1,12 @@
-package pagesWeb;
+package page.Web;
 
+import helper.Utility;
 import org.openqa.selenium.By;
 
 import static helper.Utility.driver;
 
 public class ProductPage {
+    Utility util = new Utility();
 
     By itemCategory = By.className("list-group-item");
     By addToCard = By.xpath("//a[.='Add to cart']");
@@ -27,5 +29,10 @@ public class ProductPage {
 
     public void clickAddToCard() {
         driver.findElement(addToCard).click();
+    }
+
+    public void addedProduct(String addProduct) {
+        util.displayPopup(addProduct);
+
     }
 }

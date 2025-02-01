@@ -1,7 +1,12 @@
 package page.Web;
 
 import helper.Utility;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import static helper.Utility.driver;
 
@@ -31,8 +36,9 @@ public class ProductPage {
         driver.findElement(addToCard).click();
     }
 
-    public void addedProduct(String addProduct) {
-        util.displayPopup(addProduct);
-
+    public void acceptAlert() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        alert.accept();
     }
 }

@@ -30,11 +30,8 @@ public class ProductStefDef {
 
     }
 
-    @Then("user should be message popup {string}")
-    public void userShouldBeMessagePopup(String addProduct) {
-        productPage.addedProduct(addProduct);
-
+    @Then("user accepts product added popup")
+    public void userAcceptsProductAddedPopup() {
+        productPage.acceptAlert();
     }
-
-
 }

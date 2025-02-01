@@ -1,14 +1,13 @@
-package stepDefWeb;
-
+package stepDef.Web;
 
 import io.cucumber.java.en.When;
-import pagesWeb.CartPage;
+import page.Web.CartPage;
 
 public class CartStefDef {
     CartPage cartPage;
 
-    public CartStefDef(){
-        this.cartPage=new CartPage();
+    public CartStefDef() {
+        this.cartPage = new CartPage();
     }
 
     @When("user clicks label cart")
@@ -16,9 +15,10 @@ public class CartStefDef {
         cartPage.clickCartLabel();
     }
 
-    @When("user click Place order")
+    @When("user click Place order button")
     public void userClickPlaceOrder() {
         cartPage.clickButtonPlaceOrder();
     }
+
 
 }

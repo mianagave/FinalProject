@@ -1,8 +1,8 @@
-package stepDefWeb;
+package stepDef.Web;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import pagesWeb.ProductPage;
+import page.Web.ProductPage;
 
 public class ProductStefDef {
     ProductPage productPage;
@@ -27,6 +27,12 @@ public class ProductStefDef {
     @Then("user clicks add to cart button")
     public void userClicksAddToCartButton() {
         productPage.clickAddToCard();
+
+    }
+
+    @Then("user should be message popup {string}")
+    public void userShouldBeMessagePopup(String addProduct) {
+        productPage.addedProduct(addProduct);
 
     }
 

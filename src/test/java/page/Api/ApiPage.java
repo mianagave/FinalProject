@@ -1,4 +1,4 @@
-package pagesApi;
+package page.Api;
 
 import helper.Endpoint;
 import helper.Utility;

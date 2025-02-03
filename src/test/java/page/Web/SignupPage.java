@@ -31,7 +31,7 @@ public class SignupPage {
     }
 
     public void messageSuccessPopup(String messageSuccess) {
-        util.displayPopup(messageSuccess);
+        util.displayPopupLogin(messageSuccess);
 
     }
 

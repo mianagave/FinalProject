@@ -28,8 +28,8 @@ public class LogoutStefDef {
 
     @Given("the users is logged in")
     public void theUsersIsLoggedIn() {
-        driver.get("https://www.demoblaze.com/");
-        loggedInUser("Mian Agave", "one");
+       util.goToHomepage();
+      loggedInUser("Mian Agave", "one");
     }
 
     @When("the user clicks the log out button in the navbar")
